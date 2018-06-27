@@ -1,4 +1,4 @@
-package ${bussiPackage}.${entityPackage}.entity;
+package ${bussiPackage}.${entityPackage}.domain.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;

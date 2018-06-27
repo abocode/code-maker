@@ -1,14 +1,10 @@
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) fieldsfirst 
-// Source File Name:   Columnt.java
-
 package com.abocode.codemaker.beans;
 
+import lombok.Data;
 
+@Data
 public class Column
 {
-
     public static final String OPTION_REQUIRED = "required:true";
     public static final String OPTION_NUMBER_INSEX = "precision:2,groupSeparator:','";
     private String fieldDbName;

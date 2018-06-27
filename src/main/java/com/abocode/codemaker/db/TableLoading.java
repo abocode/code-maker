@@ -9,6 +9,8 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import com.abocode.codemaker.util.FileUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -76,22 +78,7 @@ public class TableLoading {
         } catch (Exception var11) {
             var11.printStackTrace();
         } finally {
-            try {
-                if(this.stmt != null) {
-                    this.stmt.close();
-                    this.stmt = null;
-                    System.gc();
-                }
-
-                if(this.conn != null) {
-                    this.conn.close();
-                    this.conn = null;
-                    System.gc();
-                }
-            } catch (SQLException var10) {
-                throw var10;
-            }
-
+            FileUtils.close(stmt,conn);
         }
 
         return tableNames;
@@ -177,21 +164,7 @@ public class TableLoading {
         } catch (SQLException var17) {
             throw var17;
         } finally {
-            try {
-                if(this.stmt != null) {
-                    this.stmt.close();
-                    this.stmt = null;
-                    System.gc();
-                }
-
-                if(this.conn != null) {
-                    this.conn.close();
-                    this.conn = null;
-                    System.gc();
-                }
-            } catch (SQLException var15) {
-                throw var15;
-            }
+            FileUtils.close(stmt,conn);
 
         }
 
@@ -276,22 +249,7 @@ public class TableLoading {
         } catch (SQLException var16) {
             throw var16;
         } finally {
-            try {
-                if(this.stmt != null) {
-                    this.stmt.close();
-                    this.stmt = null;
-                    System.gc();
-                }
-
-                if(this.conn != null) {
-                    this.conn.close();
-                    this.conn = null;
-                    System.gc();
-                }
-            } catch (SQLException var14) {
-                throw var14;
-            }
-
+            FileUtils.close(stmt,conn);
         }
 
         ArrayList var18 = new ArrayList();

@@ -124,7 +124,7 @@ public class MainWindow extends JFrame {
                                 }
 
                                 if(actionButton.isSelected()) {
-                                    createFileProperty.setActionFlag(true);
+                                    createFileProperty.setWebFlag(true);
                                 }
 
                                 if(jspButton.isSelected()) {

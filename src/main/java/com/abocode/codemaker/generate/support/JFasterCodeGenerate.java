@@ -34,7 +34,7 @@ public class JFasterCodeGenerate implements CallBack {
     private TableLoading dbFiledUtil = new TableLoading();
 
     static {
-        createFileProperty.setActionFlag(true);
+        createFileProperty.setWebFlag(true);
         createFileProperty.setServiceFlag(true);
         createFileProperty.setJspFlag(true);
         createFileProperty.setServiceImplFlag(true);
@@ -123,13 +123,15 @@ public class JFasterCodeGenerate implements CallBack {
             codeFactory.invoke("serviceTemplate.ftl", "service");
         }
 
-        if(createFileProperty.isActionFlag()) {
+        if(createFileProperty.isWebFlag()) {
             codeFactory.invoke("controllerTemplate.ftl", "controller");
         }
 
         if(createFileProperty.isEntityFlag()) {
             codeFactory.invoke("entityTemplate.ftl", "entity");
         }
+        codeFactory.invoke("repositoryImplTemplate.ftl", "repositoryImpl");
+        codeFactory.invoke("repositoryTemplate.ftl", "repository");
 
         log.info("----jeecg----Code----Generation-----[单表模型：" + tableName + "]------ 生成完成。。。");
     }

@@ -145,12 +145,6 @@ public class CodeResourceUtils
 
     static
     {
-       /* URL = "jdbc:mysql://localhost:3306/sys?useUnicode=true&characterEncoding=UTF-8";
-        web_root_package = "WebRoot";
-        source_root_package = "src";
-        bussiPackage = "sun";
-        entity_package = "entity";
-        page_package = "page";*/
         DIVER_NAME = getDIVER_NAME();
         URL = getURL();
         USERNAME = getUSERNAME();

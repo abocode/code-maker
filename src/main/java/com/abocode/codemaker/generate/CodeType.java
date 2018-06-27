@@ -4,12 +4,16 @@ package com.abocode.codemaker.generate;
  * Created by Franky Guan on 2017/5/17.
  */
 public enum CodeType {
-    serviceImpl("ServiceImpl"),
-    dao("Dao"),
-    service("Service"),
     controller("Controller"),
-    page("Page"),
+
+    service("Service"),
+    serviceImpl("ServiceImpl"),
+
     entity("Entity"),
+    repository("Repository"),
+    repositoryImpl("RepositoryImpl"),
+
+    page("Page"),
     jsp(""),
     jsp_add(""),
     jsp_update(""),

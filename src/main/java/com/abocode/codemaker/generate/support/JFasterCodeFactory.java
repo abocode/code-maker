@@ -70,14 +70,18 @@ public class JFasterCodeFactory extends BaseCodeFactory implements CodeFactory {
             str.append(StringUtils.lowerCase(entityPackage));
             str.append("/");
 
-            if("Action".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("action"));
+            if("Controller".equalsIgnoreCase(codeType)) {
+                str.append(StringUtils.lowerCase("interfaces/web"));
             } else if("ServiceImpl".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("service/impl"));
+                str.append(StringUtils.lowerCase("application/service"));
             } else if("Service".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("service"));
+                str.append(StringUtils.lowerCase("application"));
+            } else if("RepositoryImpl".equalsIgnoreCase(codeType)) {
+                str.append(StringUtils.lowerCase("domain/repository/persistence/hibernate"));
+            } else if("Repository".equalsIgnoreCase(codeType)) {
+                str.append(StringUtils.lowerCase("domain/repository"));
             } else if("Entity".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase(codeType));
+                str.append(StringUtils.lowerCase("domain/"+codeType));
             }else if(!"List".equalsIgnoreCase(codeType)) {
                 str.append(StringUtils.lowerCase(codeType));
             }
