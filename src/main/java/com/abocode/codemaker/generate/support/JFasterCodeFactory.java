@@ -1,9 +1,6 @@
 package com.abocode.codemaker.generate.support;
 
-import com.abocode.codemaker.generate.BaseCodeFactory;
-import com.abocode.codemaker.generate.CallBack;
-import com.abocode.codemaker.generate.CodeFactory;
-import com.abocode.codemaker.generate.CodeType;
+import com.abocode.codemaker.generate.*;
 import com.abocode.codemaker.util.CodeResourceUtils;
 import com.abocode.codemaker.util.CodeStringUtils;
 import freemarker.template.Template;
@@ -61,27 +58,21 @@ public class JFasterCodeFactory extends BaseCodeFactory implements CodeFactory {
         } else {
             String codeType = (Enum.valueOf(CodeType.class, type)).getValue();
             str.append(path);
-            if(!"jsp".equals(type) && !"jspList".equals(type)) {
-                str.append(CodeResourceUtils.CODEPATH);
-            } else {
-                str.append(CodeResourceUtils.JSPPATH);
+            if("jsp".equals(type) || "jspList".equals(type)) {
+                str.append( Structure.project.getValue()+CodeResourceUtils.JSPPATH).append(StringUtils.lowerCase(entityPackage));
             }
-            //设置包名称
-            str.append(StringUtils.lowerCase(entityPackage));
-            str.append("/");
-
             if("Controller".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("interfaces/web"));
+                str.append(StringUtils.lowerCase(Structure.project.getValue()+CodeResourceUtils.buildMavenPackage(entityPackage)+"interfaces/web"));
             } else if("ServiceImpl".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("application/service"));
+                str.append(StringUtils.lowerCase(Structure.service.getValue()+CodeResourceUtils.buildMavenPackage(entityPackage)+"application/service"));
             } else if("Service".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("application"));
+                str.append(StringUtils.lowerCase(Structure.service.getValue()+CodeResourceUtils.buildMavenPackage(entityPackage)+"application"));
             } else if("RepositoryImpl".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("domain/repository/persistence/hibernate"));
+                str.append(StringUtils.lowerCase(Structure.service.getValue()+CodeResourceUtils.buildMavenPackage(entityPackage)+"domain/repository/persistence/hibernate"));
             } else if("Repository".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("domain/repository"));
+                str.append(StringUtils.lowerCase(Structure.service.getValue()+CodeResourceUtils.buildMavenPackage(entityPackage)+"domain/repository"));
             } else if("Entity".equalsIgnoreCase(codeType)) {
-                str.append(StringUtils.lowerCase("domain/"+codeType));
+                str.append(StringUtils.lowerCase(Structure.service.getValue()+CodeResourceUtils.buildMavenPackage(entityPackage)+"domain/"+codeType));
             }else if(!"List".equalsIgnoreCase(codeType)) {
                 str.append(StringUtils.lowerCase(codeType));
             }
@@ -98,7 +89,6 @@ public class JFasterCodeFactory extends BaseCodeFactory implements CodeFactory {
                 str.append(codeType);
                 str.append(".jsp");
             }
-
             return str.toString();
         }
     }

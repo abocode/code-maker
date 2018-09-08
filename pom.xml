@@ -5,8 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.abocode.codemaker</groupId>
     <artifactId>code-maker</artifactId>
-    <version>1.0.0-RELEASE</version>
-
+    <version>3.0-SNAPSHOT</version>
     <repositories>
         <repository>
             <id>central</id>
@@ -56,6 +55,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

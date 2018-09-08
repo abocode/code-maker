@@ -8,7 +8,7 @@ import com.abocode.jfaster.core.common.util.StringUtils;
 import com.abocode.jfaster.core.persistence.hibernate.qbc.CriteriaQuery;
 import com.abocode.jfaster.core.platform.view.widgets.easyui.TagUtil;
 import com.abocode.jfaster.web.common.hqlsearch.HqlGenerateUtil;
-import com.abocode.jfaster.core.interfaces.BaseController;
+import com.abocode.jfaster.web.common.interfaces.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

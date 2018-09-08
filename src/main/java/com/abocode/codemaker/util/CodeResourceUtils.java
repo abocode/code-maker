@@ -1,5 +1,6 @@
 package com.abocode.codemaker.util;
 
+import java.io.File;
 import java.util.ResourceBundle;
 
 public class CodeResourceUtils
@@ -38,6 +39,13 @@ public class CodeResourceUtils
 
     public CodeResourceUtils()
     {
+    }
+
+    public static String buildMavenPackage(String entityPackage) {
+        StringBuffer stringBuffer=new StringBuffer(source_root_package);
+        stringBuffer.append(File.separator).append(bussiPackage);
+        stringBuffer.append(File.separator).append(entityPackage.toLowerCase()).append(File.separator);
+        return stringBuffer.toString();
     }
 
     private void ResourceUtil()

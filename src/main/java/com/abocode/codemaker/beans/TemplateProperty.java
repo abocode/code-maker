@@ -19,4 +19,14 @@ public class TemplateProperty
     private boolean pageFlag;
     private boolean jspFlag;
     private String jspMode;
+
+    public void buildDefault() {
+        this.setJspMode("01");
+        this.setJspMode("02");
+        this.setWebFlag(true);
+        this.setJspFlag(true);
+        this.setServiceFlag(true);
+        this.setServiceImplFlag(true);
+        this.setEntityFlag(true);
+    }
 }
